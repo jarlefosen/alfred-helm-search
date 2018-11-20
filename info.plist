@@ -4,6 +4,8 @@
 <dict>
 	<key>bundleid</key>
 	<string>it.fosen.alfred-helm-search</string>
+	<key>category</key>
+	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
 		<key>7DA03CE7-AB65-4D79-A39D-706B89267E11</key>
