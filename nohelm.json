@@ -1,0 +1,9 @@
+{ "items": [
+    {
+      "arg": "",
+      "uid": "no-helm-installed",
+      "title": "Helm not installed",
+      "subtitle": "Please install HELM to use this workflow",
+      "valid": false
+    }
+]}
