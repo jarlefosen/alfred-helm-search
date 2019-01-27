@@ -8,6 +8,19 @@
 	<string>Productivity</string>
 	<key>connections</key>
 	<dict>
+		<key>17F1A4D0-BE65-4CE6-AB4A-B9943129F9E7</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F341CA20-317D-463A-9126-28B64CF25AB0</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>7DA03CE7-AB65-4D79-A39D-706B89267E11</key>
 		<array>
 			<dict>
@@ -34,6 +47,19 @@
 				<false/>
 			</dict>
 		</array>
+		<key>F341CA20-317D-463A-9126-28B64CF25AB0</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A67FA9A8-1AD3-4E53-AC24-9BA7BFB645E7</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 	</dict>
 	<key>createdby</key>
 	<string>Jarle Fosen</string>
@@ -45,25 +71,6 @@
 	<string>Helm Search</string>
 	<key>objects</key>
 	<array>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>browser</key>
-				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>https://hub.kubeapps.com/charts/{var:chart}</string>
-				<key>utf8</key>
-				<true/>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
-			<key>uid</key>
-			<string>E8B40EFD-7A65-493F-A132-913ADB1AE9F3</string>
-			<key>version</key>
-			<integer>1</integer>
-		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -117,6 +124,25 @@
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>browser</key>
+				<string></string>
+				<key>spaces</key>
+				<string></string>
+				<key>url</key>
+				<string>https://hub.kubeapps.com/charts/{var:chart}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>E8B40EFD-7A65-493F-A132-913ADB1AE9F3</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argument</key>
 				<string>{query}</string>
 				<key>variables</key>
@@ -132,17 +158,102 @@
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>/usr/local/bin/helm repo update &gt; /dev/null
+res=$?
+if [ $res == 0 ]; then
+  echo "Repositories are updated"
+else
+  echo "Something went wrong"
+fi</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F341CA20-317D-463A-9126-28B64CF25AB0</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>helm-update</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Update Helm repositories</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>17F1A4D0-BE65-4CE6-AB4A-B9943129F9E7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>We are done: {query}</string>
+				<key>title</key>
+				<string>Helm update done</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>A67FA9A8-1AD3-4E53-AC24-9BA7BFB645E7</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>17F1A4D0-BE65-4CE6-AB4A-B9943129F9E7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>70</integer>
+			<key>ypos</key>
+			<integer>310</integer>
+		</dict>
 		<key>7DA03CE7-AB65-4D79-A39D-706B89267E11</key>
 		<dict>
 			<key>xpos</key>
 			<integer>270</integer>
 			<key>ypos</key>
 			<integer>200</integer>
+		</dict>
+		<key>A67FA9A8-1AD3-4E53-AC24-9BA7BFB645E7</key>
+		<dict>
+			<key>xpos</key>
+			<integer>370</integer>
+			<key>ypos</key>
+			<integer>310</integer>
 		</dict>
 		<key>A93A7339-F4A1-43E3-8B36-AF2973C24B52</key>
 		<dict>
@@ -157,6 +268,13 @@
 			<integer>370</integer>
 			<key>ypos</key>
 			<integer>170</integer>
+		</dict>
+		<key>F341CA20-317D-463A-9126-28B64CF25AB0</key>
+		<dict>
+			<key>xpos</key>
+			<integer>220</integer>
+			<key>ypos</key>
+			<integer>310</integer>
 		</dict>
 	</dict>
 	<key>webaddress</key>
